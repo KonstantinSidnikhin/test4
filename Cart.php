@@ -3,25 +3,23 @@
 class Cart{
     public $products = [];
     public  $index=0;
-
-
-
+    public function get(){
+    return $this->products;
+}
     public function add($item){
         $this->products[]=$item;
-        return $this;
+        return $this->products;
 
     }
     public function remove($item1){
-//        $this->index=0;
-        $this->products[]=$products;
 
 
 
         $index=array_search($item1, $products);
 
 
-        array_splice($products,$index,2);
-        return $products;
+        array_splice($products,$index,1);
+  return $this->$products;
     }
 
 
@@ -30,9 +28,11 @@ class Cart{
 
 
 $cart=new Cart;
-$cart->add("milk")->add("bread");
-$cart->add("butter")->remove("butter");
+$cart->add("milk");
+$cart->add("butter");
+$cart->remove("butter");
+print_r($cart->products);
 
 
 
-print_r($cart);
+
